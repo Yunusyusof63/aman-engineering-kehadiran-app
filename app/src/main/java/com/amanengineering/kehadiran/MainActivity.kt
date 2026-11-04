@@ -39,6 +39,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        // Padam cache kebenaran lokasi WebView yang lama (mungkin tersimpan "tolak"
+        // dari versi app sebelum ini, sebelum onGeolocationPermissionsShowPrompt dibenarkan).
+        GeolocationPermissions.getInstance().clearAll()
+
         webView = WebView(this)
         setContentView(webView)
         webView.settings.javaScriptEnabled = true
